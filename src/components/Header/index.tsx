@@ -21,7 +21,7 @@ export function Header(){
                 
             
                     <Image src={logo} alt={"Elanto logo"} className={styles.logo}/>
-                    <h1 className={styles.welcome}>Bem vindo, {user.name}!</h1>
+                    <h1 className={styles.welcome}>Bem vindo {user.name} !</h1>
 
                 <nav className={styles.menu}>
                    
