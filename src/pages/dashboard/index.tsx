@@ -50,13 +50,15 @@ export default function Dashboard() {
       <div>
         {Object.entries(ordersByYearAndMonth).map(([year, ordersByMonth]) => (
           <div key={year}>
-            <h2>{year}</h2>
+            <h2 className={styles.year}>{year}</h2>
             <table>
-              <thead>
+            <thead>
                 <tr>
                   <th>Mês</th>
                   <th>Número de Pedidos</th>
                   <th>Datas dos Pedidos</th>
+                  <th>ID dos Pedidos</th>
+                  <th>Data do Pedido</th>
                 </tr>
               </thead>
               <tbody>
@@ -65,6 +67,8 @@ export default function Dashboard() {
                     <td>{new Date(parseInt(year), parseInt(month)).toLocaleString('default', { month: 'long' })}</td>
                     <td>{orders.length}</td>
                     <td>{orders.map(order => new Date(order.PC17DTEmi).toLocaleDateString()).join(', ')}</td>
+                    <td>{orders.map(order => order.PC17Pedido).join(', ')}</td>
+                    <td>{orders.map(order => order.PC17DTEmi).join(', ')}</td>
                   </tr>
                 ))}
               </tbody>
