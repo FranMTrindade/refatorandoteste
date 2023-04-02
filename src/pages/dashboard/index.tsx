@@ -46,29 +46,34 @@ export default function Dashboard() {
   
   return (
     <>
+
+    <Head>
+      <title>Elanto - Dashboard</title>
+    </Head>
+     
       <Header />
+      
       <div>
         {Object.entries(ordersByYearAndMonth).map(([year, ordersByMonth]) => (
           <div key={year}>
             <h2 className={styles.year}>{year}</h2>
-            <table>
-            <thead>
+            <table className={styles.table}>
+            <thead className={styles.line}>
                 <tr>
                   <th>Mês</th>
-                  <th>Número de Pedidos</th>
-                  <th>Datas dos Pedidos</th>
+                  <th>Qnt. Vendas</th>
+                  <th>Dia pedido</th>
                   <th>ID dos Pedidos</th>
-                  <th>Data do Pedido</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className={styles.colum}>
                 {Object.entries(ordersByMonth).map(([month, orders]) => (
                   <tr key={`${year}-${month}`}>
-                    <td>{new Date(parseInt(year), parseInt(month)).toLocaleString('default', { month: 'long' })}</td>
-                    <td>{orders.length}</td>
-                    <td>{orders.map(order => new Date(order.PC17DTEmi).toLocaleDateString()).join(', ')}</td>
-                    <td>{orders.map(order => order.PC17Pedido).join(', ')}</td>
-                    <td>{orders.map(order => order.PC17DTEmi).join(', ')}</td>
+                    <td className={styles.columMonth}>{new Date(parseInt(year), parseInt(month)).toLocaleString('default', { month: 'short' }).toUpperCase()}</td>
+                    <td className={styles.columOrders}>{orders.length}</td>
+                    <td className={styles.columDay}>{orders.map(order => new Date(order.PC17DTEmi).getDate()).join(', ')}</td>
+                    <td className={styles.columId}>{orders.map(order => order.PC17Pedido).join(' - ')}</td>
+                    
                   </tr>
                 ))}
               </tbody>
