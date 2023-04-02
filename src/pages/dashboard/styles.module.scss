@@ -5,10 +5,50 @@
 }
 
 .year{
-  margin-left: 40%;
+  margin-left: 15%;
   color: var(--green);
-  margin-top: 20px;
+  margin-top: 30px;
 }
+
+.table{
+  margin-left: 150px;
+  margin-top: 15px;
+  margin-bottom: 50px;
+  
+}
+
+.line{
+  text-transform: uppercase;
+  color: var(--green);
+  font-weight: bold;
+}
+
+.colum{
+  color: var(--blue);
+}
+
+.columMonth{
+  color: var(--green);
+  font-weight: bold;
+  
+}
+
+.columOrders{
+  
+  
+  font-weight: bold;
+}
+
+.columDay{
+  color: var(--green);
+  font-weight: bold;
+}
+
+.columId{
+  
+  font-weight: bold;
+}
+
 
 
 
